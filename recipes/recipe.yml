@@ -44,15 +44,15 @@ modules:
 
   # Module for managing RPM packages.
   - type: rpm-ostree
-    #keys:
+    keys:
       # RPM Fusion Free GPG Key
-      #- url: https://raw.githubusercontent.com/rpmfusion/rpmfusion-free-release/refs/heads/master/RPM-GPG-KEY-rpmfusion-free-fedora-2020
+      - https://raw.githubusercontent.com/rpmfusion/rpmfusion-free-release/refs/heads/master/RPM-GPG-KEY-rpmfusion-free-fedora-2020
 
       # RPM Fusion Nonfree GPG Key
-      #- url: https://raw.githubusercontent.com/rpmfusion/rpmfusion-nonfree-release/refs/heads/master/RPM-GPG-KEY-rpmfusion-nonfree-fedora-2020
+      - https://raw.githubusercontent.com/rpmfusion/rpmfusion-nonfree-release/refs/heads/master/RPM-GPG-KEY-rpmfusion-nonfree-fedora-2020
 
       # RPM Fusion Tainted GPG Key (Include if you are using the Tainted repo)
-      #- url: https://rpmfusion.org/RPM-GPG-KEY-rpmfusion-tainted-fedora-42
+      - https://rpmfusion.org/RPM-GPG-KEY-rpmfusion-tainted-fedora-42
 
       # Starship COPR GPG Key (Include if you are using the Starship COPR)
       #- url: https://download.copr.fedorainfracloud.org/results/atim/starship/pubkey.gpg
