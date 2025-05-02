@@ -13,7 +13,7 @@ description: Custom immutable Fedora Cinnamon image with NVIDIA/CUDA, developmen
 
 # Required: The OCI image to base your custom image on.
 # We are using the fedora-main base for Fedora 42.
-base-image: ghcr.io/ublue-os/base-main
+base-image: ghcr.io/ublue-os/base-nvidia
 image-version: 42 # latest is also supported if you want new updates ASAP
 
 # Optional: Allows setting custom tags on the recipe’s final image.
@@ -180,11 +180,6 @@ modules:
         - com.github.tchx84.Flatseal
         - com.usebottles.bottles
         - org.fedoraproject.MediaWriter
-
-  - type: akmods
-    base: main
-    install:
-      - nvidia
 
   # Module for copying local files into the image.
   - type: files
