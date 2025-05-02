@@ -42,13 +42,8 @@ modules:
       - source: system
         dest: /
 
-  - type: akmods
-    install:
-      - nvidia-open
-      - evdi
-
   # Module for managing RPM packages.
-  #- type: rpm-ostree
+  - type: rpm-ostree
     #keys:
       # RPM Fusion Free GPG Key
       #- url: https://raw.githubusercontent.com/rpmfusion/rpmfusion-free-release/refs/heads/master/RPM-GPG-KEY-rpmfusion-free-fedora-2020
@@ -185,19 +180,10 @@ modules:
       # - eom # Replaced with geeqie
       # Add any other packages from the base-main image you wish to remove
 
-  # Module for managing Flatpak applications and remotes.
-  - type: default-flatpaks # This is an item in the 'modules' list
-    # The configuration for this module goes under a key here.
-    notify: true
-    system: # <--- Add this key here, aligned with 'type:'
-      install:
-        # Add requested Flatpak applications
-        - org.videolan.VLC # <--- This list item is also indented under 'flatpaks:'
-        - org.mozilla.firefox
-        - org.chromium.Chromium
-        - com.github.tchx84.Flatseal
-        - com.usebottles.bottles
-        - org.fedoraproject.MediaWriter
+  - type: akmods
+    install:
+      - nvidia-open
+      - evdi
 
   # Module for running custom scripts during the build process.
   - type: script
@@ -254,3 +240,17 @@ modules:
       # Recommended kernel arguments for NVIDIA
       - nvidia-drm.modeset=1 # Enables NVIDIA DRM modesetting (often needed for Wayland)
       - rd.driver.blacklist=nouveau # Blacklists the open-source Nouveau driver to prevent conflicts
+
+    # Module for managing Flatpak applications and remotes.
+  - type: default-flatpaks # This is an item in the 'modules' list
+    # The configuration for this module goes under a key here.
+    notify: true
+    system: # <--- Add this key here, aligned with 'type:'
+      install:
+        # Add requested Flatpak applications
+        - org.videolan.VLC # <--- This list item is also indented under 'flatpaks:'
+        - org.mozilla.firefox
+        - org.chromium.Chromium
+        - com.github.tchx84.Flatseal
+        - com.usebottles.bottles
+        - org.fedoraproject.MediaWriter
