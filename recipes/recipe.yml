@@ -43,9 +43,9 @@ modules:
         dest: /
 
   - type: akmods
-    base: main
     install:
-      - nvidia
+      - nvidia-open
+      - evdi
 
   # Module for managing RPM packages.
   #- type: rpm-ostree
@@ -130,9 +130,9 @@ modules:
       # Universal Blue bases usually have RPM Fusion configured. You might need to
       # add the official NVIDIA CUDA repository for some of these packages via scripts.
       # - akmod-nvidia # Akmod for NVIDIA kernel modules
-      - xorg-x11-drv-nvidia # NVIDIA Xorg driver (includes Wayland components)
-      - nvidia-settings # NVIDIA settings utility
-      - nvidia-xconfig # NVIDIA X configuration tool
+      # - xorg-x11-drv-nvidia # NVIDIA Xorg driver (includes Wayland components)
+      # - nvidia-settings # NVIDIA settings utility
+      # - nvidia-xconfig # NVIDIA X configuration tool
       # Core CUDA packages - add more specific ones below if needed
       - cuda # Meta-package for CUDA toolkit
       - cuda-toolkit # The NVIDIA CUDA Toolkit base
