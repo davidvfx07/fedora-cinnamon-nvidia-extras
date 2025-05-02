@@ -1,0 +1,30 @@
+[rpmfusion-free-updates]
+name=RPM Fusion for Fedora 42 - Free - Updates
+#baseurl=http://download1.rpmfusion.org/free/fedora/updates/42/x86_64/
+metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-updates-released-42&arch=x86_64
+enabled=0
+type=rpm-md
+gpgcheck=1
+repo_gpgcheck=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-42
+
+[rpmfusion-free-updates-debuginfo]
+name=RPM Fusion for Fedora 42 - Free - Updates Debug
+#baseurl=http://download1.rpmfusion.org/free/fedora/updates/42/x86_64/debug/
+metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-updates-released-debug-42&arch=x86_64
+enabled=0
+type=rpm-md
+gpgcheck=1
+repo_gpgcheck=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-42
+
+[rpmfusion-free-updates-source]
+name=RPM Fusion for Fedora 42 - Free - Updates Source
+#baseurl=http://download1.rpmfusion.org/free/fedora/updates/42/SRPMS/
+metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-updates-released-source-42&arch=x86_64
+enabled=0
+type=rpm-md
+gpgcheck=1
+repo_gpgcheck=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-42
+
