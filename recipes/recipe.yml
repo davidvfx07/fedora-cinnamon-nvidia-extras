@@ -181,6 +181,7 @@ modules:
       # Add any other packages from the base-main image you wish to remove
 
   - type: akmods
+    base: nvidia-open
     install:
       - nvidia-open
       - evdi
