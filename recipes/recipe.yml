@@ -51,6 +51,9 @@ modules:
       # RPM Fusion Nonfree GPG Key
       - https://raw.githubusercontent.com/rpmfusion/rpmfusion-nonfree-release/refs/heads/master/RPM-GPG-KEY-rpmfusion-nonfree-fedora-2020
 
+      # RPM Fusion Tainted GPG Key (Include if you are using the Tainted repo)
+      #- https://rpmfusion.org/RPM-GPG-KEY-rpmfusion-tainted-fedora-42
+
       # Starship COPR GPG Key (Include if you are using the Starship COPR)
       #- url: https://download.copr.fedorainfracloud.org/results/atim/starship/pubkey.gpg
     install:
