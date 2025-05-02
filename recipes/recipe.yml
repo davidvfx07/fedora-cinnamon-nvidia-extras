@@ -160,7 +160,7 @@ modules:
       - ddrescue
       # Add any other specific compilers, libraries, or tools you need
 
-    remove:
+    # remove:
       # Packages to remove (based on the archived repo's exclusions and explicit requests)
       # - firefox # Removing the RPM version as we're adding the Flatpak
       # - firefox-langpacks # Removing langpacks for the RPM version
