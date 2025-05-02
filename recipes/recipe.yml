@@ -33,14 +33,14 @@ image-version: 42 # latest is also supported if you want new updates ASAP
 # Required: A list of modules that is executed in order.
 modules:
   # Module for copying local files into the image.
-  - type: files
+  #- type: files
     # Add your files here.
     # Example:
     # - src: usr/etc/just.d/00-custom.just
     #   dest: /usr/etc/just.d/00-custom.just
-    files:
-      - source: system
-        dest: /
+    #files:
+      #- source: system
+        #dest: /
 
   # Module for managing RPM packages.
   - type: rpm-ostree
@@ -56,6 +56,9 @@ modules:
 
       # Starship COPR GPG Key (Include if you are using the Starship COPR)
       #- url: https://download.copr.fedorainfracloud.org/results/atim/starship/pubkey.gpg
+    repos:
+      - https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-42.noarch.rpm
+      - https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-42.noarch.rpm
     install:
       # Packages to install
       # Core Cinnamon Desktop Environment (packages from archived repo list, modified)
@@ -82,7 +85,7 @@ modules:
       - geeqie
 
       # GSConnect for Android Integration
-      - gsconnect
+      - gnome-shell-extension-gsconnect
 
       # Virtualization Tools
       - virt-manager # Virtual Machine Manager GUI
@@ -102,11 +105,8 @@ modules:
       # Comprehensive Multimedia Codecs and Thumbnail Generators
       # Includes packages from Fedora and RPM Fusion (free and nonfree) for broad support.
       - ffmpeg # The core FFmpeg library and tools
-      - gstreamer1-plugins-base
-      - gstreamer1-plugins-good # Good quality plugins
-      - gstreamer1-plugins-bad # Bad quality plugins (may have some licensing issues)
-      - gstreamer1-plugins-ugly # Ugly quality plugins (likely patented)
-      - gstreamer1-libav # FFmpeg plugin for GStreamer
+      - gstreamer1 # Ugly quality plugins (likely patented)
+      - gstreamer1-plugin-libav # FFmpeg plugin for GStreamer
       - libavcodec-free # Free FFmpeg codec library
       - libavcodec-full # Full FFmpeg codec library (includes non-free)
       - libdvdcss # For playing encrypted DVDs (from a separate repo, often RPM Fusion tainted)
@@ -129,10 +129,10 @@ modules:
       # - nvidia-settings # NVIDIA settings utility
       # - nvidia-xconfig # NVIDIA X configuration tool
       # Core CUDA packages - add more specific ones below if needed
-      - cuda # Meta-package for CUDA toolkit
-      - cuda-toolkit # The NVIDIA CUDA Toolkit base
-      - libcudnn-devel # cuDNN development libraries (for deep learning)
-      - tensorrt # NVIDIA TensorRT (for optimized inference)
+      # - cuda # Meta-package for CUDA toolkit
+      # - cuda-toolkit # The NVIDIA CUDA Toolkit base
+      # - libcudnn-devel # cuDNN development libraries (for deep learning)
+      # - tensorrt # NVIDIA TensorRT (for optimized inference)
       # Note: Comprehensive CUDA support depends on exact development needs.
       # This list provides core components. Additional libraries might be needed.
       # Enabling Wayland with proprietary NVIDIA drivers in Cinnamon might require
@@ -166,10 +166,9 @@ modules:
       - libffi-devel
       - readline-devel
       - ncurses-devel
-      - lsusb
-      - lshw
-      - lspci
       - usbutils
+      - lshw
+      - pciutils
       - ddrescue
       # Add any other specific compilers, libraries, or tools you need
 
