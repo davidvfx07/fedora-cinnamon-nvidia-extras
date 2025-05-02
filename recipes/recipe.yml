@@ -180,10 +180,10 @@ modules:
       # - eom # Replaced with geeqie
       # Add any other packages from the base-main image you wish to remove
 
-  - type: akmods
-    install:
+  #- type: akmods
+    #install:
       #- nvidia-open
-      - evdi
+      #- evdi
 
   # Module for running custom scripts during the build process.
   - type: script
