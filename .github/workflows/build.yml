@@ -18,6 +18,9 @@ jobs:
   bluebuild:
     name: Build Custom Image
     runs-on: ubuntu-latest
+    env:
+      RELEASEVER: 42
+      BASEARCH: x86_64
     permissions:
       contents: read
       packages: write
