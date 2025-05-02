@@ -39,8 +39,8 @@ modules:
     # - src: usr/etc/just.d/00-custom.just
     #   dest: /usr/etc/just.d/00-custom.just
     files:
-      - src: ./files/system/etc/yum.repos.d/ # Source path in your repository
-        dest: /etc/yum.repos.d/
+      - source: system
+        dest: /
   # Module for managing RPM packages.
   - type: rpm-ostree
     install:
