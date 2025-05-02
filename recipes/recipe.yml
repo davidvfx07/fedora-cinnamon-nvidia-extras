@@ -32,17 +32,17 @@ image-version: 42 # latest is also supported if you want new updates ASAP
 
 # Required: A list of modules that is executed in order.
 modules:
+  # Module for copying local files into the image.
+  - type: files
+    # Add your files here.
+    # Example:
+    # - src: usr/etc/just.d/00-custom.just
+    #   dest: /usr/etc/just.d/00-custom.just
+    files:
+      - src: ./files/system/etc/yum.repos.d/ # Source path in your repository
+        dest: /etc/yum.repos.d/
   # Module for managing RPM packages.
   - type: rpm-ostree
-    repos:
-      # Standard Fedora Repositories (often included implicitly, but can add explicitly)
-      - https://kojipkgs.fedoraproject.org/packages/fedora-repos/42/1/noarch/fedora-repos-42-1.noarch.rpm
-      # RPM Fusion Free Repository
-      - https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-42.noarch.rpm
-      # RPM Fusion Nonfree Repository
-      - https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-42.noarch.rpm
-      # Your COPR Repository (if you add it back)
-      #- https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-42/atim-starship-fedora-42.repo
     install:
       # Packages to install
       # Core Cinnamon Desktop Environment (packages from archived repo list, modified)
@@ -112,11 +112,11 @@ modules:
       # Universal Blue bases usually have RPM Fusion configured. You might need to
       # add the official NVIDIA CUDA repository for some of these packages via scripts.
       # - akmod-nvidia # Akmod for NVIDIA kernel modules
-      - xorg-x11-drv-nvidia # NVIDIA Xorg driver (includes Wayland components)
-      - nvidia-settings # NVIDIA settings utility
-      - nvidia-xconfig # NVIDIA X configuration tool
+      #- xorg-x11-drv-nvidia # NVIDIA Xorg driver (includes Wayland components)
+      #- nvidia-settings # NVIDIA settings utility
+      #- nvidia-xconfig # NVIDIA X configuration tool
       # Core CUDA packages - add more specific ones below if needed
-      - cuda # Meta-package for CUDA toolkit
+      #- cuda # Meta-package for CUDA toolkit
       - cuda-toolkit # The NVIDIA CUDA Toolkit base
       - libcudnn-devel # cuDNN development libraries (for deep learning)
       - tensorrt # NVIDIA TensorRT (for optimized inference)
@@ -180,14 +180,6 @@ modules:
         - com.github.tchx84.Flatseal
         - com.usebottles.bottles
         - org.fedoraproject.MediaWriter
-
-  # Module for copying local files into the image.
-  - type: files
-    # Add your files here.
-    # Example:
-    # - src: usr/etc/just.d/00-custom.just
-    #   dest: /usr/etc/just.d/00-custom.just
-    files: [] # Keep as empty list if no files to copy
 
   # Module for running custom scripts during the build process.
   - type: script
