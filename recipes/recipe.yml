@@ -162,8 +162,8 @@ modules:
 
     remove:
       # Packages to remove (based on the archived repo's exclusions and explicit requests)
-      - firefox # Removing the RPM version as we're adding the Flatpak
-      - firefox-langpacks # Removing langpacks for the RPM version
+      # - firefox # Removing the RPM version as we're adding the Flatpak
+      # - firefox-langpacks # Removing langpacks for the RPM version
       # - eom # Replaced with geeqie
       # Add any other packages from the base-main image you wish to remove
 
