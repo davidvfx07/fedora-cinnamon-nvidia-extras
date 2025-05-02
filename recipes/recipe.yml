@@ -13,7 +13,7 @@ description: Custom immutable Fedora Cinnamon image with NVIDIA/CUDA, developmen
 
 # Required: The OCI image to base your custom image on.
 # We are using the fedora-main base for Fedora 42.
-base-image: ghcr.io/ublue-os/base-nvidia
+base-image: ghcr.io/ublue-os/base-main
 image-version: 42 # latest is also supported if you want new updates ASAP
 
 # Optional: Allows setting custom tags on the recipe’s final image.
@@ -41,8 +41,26 @@ modules:
     files:
       - source: system
         dest: /
+
+  - type: akmods
+    base: main
+    install:
+      - nvidia
+
   # Module for managing RPM packages.
-  - type: rpm-ostree
+  #- type: rpm-ostree
+    #keys:
+      # RPM Fusion Free GPG Key
+      #- url: https://raw.githubusercontent.com/rpmfusion/rpmfusion-free-release/refs/heads/master/RPM-GPG-KEY-rpmfusion-free-fedora-2020
+
+      # RPM Fusion Nonfree GPG Key
+      #- url: https://raw.githubusercontent.com/rpmfusion/rpmfusion-nonfree-release/refs/heads/master/RPM-GPG-KEY-rpmfusion-nonfree-fedora-2020
+
+      # RPM Fusion Tainted GPG Key (Include if you are using the Tainted repo)
+      #- url: https://rpmfusion.org/RPM-GPG-KEY-rpmfusion-tainted-fedora-42
+
+      # Starship COPR GPG Key (Include if you are using the Starship COPR)
+      #- url: https://download.copr.fedorainfracloud.org/results/atim/starship/pubkey.gpg
     install:
       # Packages to install
       # Core Cinnamon Desktop Environment (packages from archived repo list, modified)
@@ -112,11 +130,11 @@ modules:
       # Universal Blue bases usually have RPM Fusion configured. You might need to
       # add the official NVIDIA CUDA repository for some of these packages via scripts.
       # - akmod-nvidia # Akmod for NVIDIA kernel modules
-      #- xorg-x11-drv-nvidia # NVIDIA Xorg driver (includes Wayland components)
-      #- nvidia-settings # NVIDIA settings utility
-      #- nvidia-xconfig # NVIDIA X configuration tool
+      - xorg-x11-drv-nvidia # NVIDIA Xorg driver (includes Wayland components)
+      - nvidia-settings # NVIDIA settings utility
+      - nvidia-xconfig # NVIDIA X configuration tool
       # Core CUDA packages - add more specific ones below if needed
-      #- cuda # Meta-package for CUDA toolkit
+      - cuda # Meta-package for CUDA toolkit
       - cuda-toolkit # The NVIDIA CUDA Toolkit base
       - libcudnn-devel # cuDNN development libraries (for deep learning)
       - tensorrt # NVIDIA TensorRT (for optimized inference)
