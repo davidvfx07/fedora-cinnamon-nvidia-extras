@@ -80,6 +80,8 @@ modules:
       - xreader # Document viewer
       - xdg-user-dirs-gtk # GTK utilities for user directories
 
+      - mesa-filesystem
+
       # GDM (GNOME Display Manager)
       - gdm
 
@@ -110,7 +112,7 @@ modules:
       - ffmpeg # The core FFmpeg library and tools
       - gstreamer1 # Ugly quality plugins (likely patented)
       - gstreamer1-plugin-libav # FFmpeg plugin for GStreamer
-      - libavcodec-free # Free FFmpeg codec library
+      #- libavcodec-free # Free FFmpeg codec library
       #- libavcodec-full # Full FFmpeg codec library (includes non-free)
       #- libdvdcss # For playing encrypted DVDs (from a separate repo, often RPM Fusion tainted)
       - mesa-va-drivers # VA-API drivers for hardware video acceleration
@@ -176,12 +178,14 @@ modules:
       - ddrescue
       # Add any other specific compilers, libraries, or tools you need
 
-    # remove:
+    remove:
       # Packages to remove (based on the archived repo's exclusions and explicit requests)
       # - firefox # Removing the RPM version as we're adding the Flatpak
       # - firefox-langpacks # Removing langpacks for the RPM version
       # - eom # Replaced with geeqie
       # Add any other packages from the base-main image you wish to remove
+
+      - noopenh264
 
   #- type: akmods
     #install:
