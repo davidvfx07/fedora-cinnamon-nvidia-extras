@@ -196,7 +196,7 @@ modules:
       # If GDM starts automatically after installing the package, you might not need this.
       enabled:
         - gdm.service
-        - ibvirtd.service # Enable libvirtd for virtualization
+        #- ibvirtd.service # Enable libvirtd for virtualization
 
   # Module for managing kernel arguments.
   - type: kargs
