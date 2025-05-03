@@ -181,7 +181,6 @@ modules:
       # - eom # Replaced with geeqie
       # Add any other packages from the base-main image you wish to remove
       - noopenh264
-      - libavcodec-free
 
   #- type: akmods
     #install:
