@@ -44,12 +44,12 @@ modules:
 
   # Module for managing RPM packages.
   - type: rpm-ostree
-    keys:
+    #keys:
       # RPM Fusion Free GPG Key
-      - https://raw.githubusercontent.com/rpmfusion/rpmfusion-free-release/refs/heads/master/RPM-GPG-KEY-rpmfusion-free-fedora-2020
+      #- https://raw.githubusercontent.com/rpmfusion/rpmfusion-free-release/refs/heads/master/RPM-GPG-KEY-rpmfusion-free-fedora-2020
 
       # RPM Fusion Nonfree GPG Key
-      - https://raw.githubusercontent.com/rpmfusion/rpmfusion-nonfree-release/refs/heads/master/RPM-GPG-KEY-rpmfusion-nonfree-fedora-2020
+      #- https://raw.githubusercontent.com/rpmfusion/rpmfusion-nonfree-release/refs/heads/master/RPM-GPG-KEY-rpmfusion-nonfree-fedora-2020
 
       # RPM Fusion Tainted GPG Key (Include if you are using the Tainted repo)
       #- https://rpmfusion.org/RPM-GPG-KEY-rpmfusion-tainted-fedora-42
@@ -59,6 +59,8 @@ modules:
     repos:
       - https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-42.noarch.rpm
       - https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-42.noarch.rpm
+      - https://src.fedoraproject.org/rpms/fedora-repos/raw/f42/f/fedora-cisco-openh264.repo
+      - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-42/atim-starship-fedora-42.repo
     install:
       # Packages to install
       # Core Cinnamon Desktop Environment (packages from archived repo list, modified)
@@ -101,6 +103,7 @@ modules:
       # Alternative Terminal and Text Editor
       - ptyxis # Second terminal emulator
       - geany # Second lightweight text editor
+      - starship
 
       # Comprehensive Multimedia Codecs and Thumbnail Generators
       # Includes packages from Fedora and RPM Fusion (free and nonfree) for broad support.
@@ -108,16 +111,18 @@ modules:
       - gstreamer1 # Ugly quality plugins (likely patented)
       - gstreamer1-plugin-libav # FFmpeg plugin for GStreamer
       - libavcodec-free # Free FFmpeg codec library
-      - libavcodec-full # Full FFmpeg codec library (includes non-free)
-      - libdvdcss # For playing encrypted DVDs (from a separate repo, often RPM Fusion tainted)
+      #- libavcodec-full # Full FFmpeg codec library (includes non-free)
+      #- libdvdcss # For playing encrypted DVDs (from a separate repo, often RPM Fusion tainted)
       - mesa-va-drivers # VA-API drivers for hardware video acceleration
       - mesa-vdpau-drivers # VDPAU drivers for hardware video acceleration
-      - vkd3d # Direct3D 12 to Vulkan translation layer
-      - intel-media-driver # Intel Media Driver for VAAPI (if you have Intel iGPU)
+      - libvkd3d # Direct3D 12 to Vulkan translation layer
+      # - intel-media-driver # Intel Media Driver for VAAPI (if you have Intel iGPU)
       - openh264 # Cisco OpenH264 codec
       # Thumbnailers
       - ffmpegthumbnailer # Thumbnailer for videos (already listed, ensuring it's there)
-      - raw-thumbnailer # Thumbnailer for raw image files (often in version-specific includes)
+      - gnome-directory-thumbnailer
+      - gnome-kra-ora-thumbnailer
+      #- raw-thumbnailer # Thumbnailer for raw image files (often in version-specific includes)
       - tumbler # Thumbnail service for the desktop
 
       # Comprehensive NVIDIA/CUDA Support (required since using base-main)
@@ -144,7 +149,6 @@ modules:
       - ifuse # Mount iOS device filesystems over USB
 
       - android-tools
-      #- starship
 
       # Extensive Development Extras
       - make
@@ -253,3 +257,13 @@ modules:
         - com.github.tchx84.Flatseal
         - com.usebottles.bottles
         - org.fedoraproject.MediaWriter
+
+  - type: fonts
+    fonts:
+      nerd-fonts:
+        - FiraCode
+        - Hack
+        - SourceCodePro
+        - Terminus
+        - JetBrainsMono
+        - NerdFontsSymbolsOnly
