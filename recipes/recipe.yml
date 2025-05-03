@@ -80,8 +80,6 @@ modules:
       - xreader # Document viewer
       - xdg-user-dirs-gtk # GTK utilities for user directories
 
-      - mesa-filesystem
-
       # GDM (GNOME Display Manager)
       - gdm
 
@@ -184,8 +182,12 @@ modules:
       # - firefox-langpacks # Removing langpacks for the RPM version
       # - eom # Replaced with geeqie
       # Add any other packages from the base-main image you wish to remove
-
       - noopenh264
+
+    replace:
+      - from-repo: https://src.fedoraproject.org/rpms/fedora-repos/raw/f42/f/fedora-updates.repo
+        packages:
+          - mesa-filesystem
 
   #- type: akmods
     #install:
