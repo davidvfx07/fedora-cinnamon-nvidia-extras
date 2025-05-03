@@ -113,8 +113,6 @@ modules:
       #- libavcodec-free # Free FFmpeg codec library
       #- libavcodec-full # Full FFmpeg codec library (includes non-free)
       #- libdvdcss # For playing encrypted DVDs (from a separate repo, often RPM Fusion tainted)
-      - mesa-va-drivers # VA-API drivers for hardware video acceleration
-      - mesa-vdpau-drivers # VDPAU drivers for hardware video acceleration
       - libvkd3d # Direct3D 12 to Vulkan translation layer
       # - intel-media-driver # Intel Media Driver for VAAPI (if you have Intel iGPU)
       - openh264 # Cisco OpenH264 codec
@@ -183,6 +181,7 @@ modules:
       # - eom # Replaced with geeqie
       # Add any other packages from the base-main image you wish to remove
       - noopenh264
+      - libavcodec-free
 
     replace:
       - from-repo: https://kojipkgs.fedoraproject.org/packages/fedora-repos/42/1/noarch/fedora-repos-42-1.noarch.rpm
