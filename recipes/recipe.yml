@@ -104,6 +104,7 @@ modules:
       - ptyxis # Second terminal emulator
       - geany # Second lightweight text editor
       - starship
+      - conda
 
       # Comprehensive Multimedia Codecs and Thumbnail Generators
       # Includes packages from Fedora and RPM Fusion (free and nonfree) for broad support.
@@ -186,42 +187,6 @@ modules:
     #install:
       #- nvidia-open
       #- evdi
-
-  # Module for running custom scripts during the build process.
-  - type: script
-    # Add your scripts here.
-    snippets:
-      - | # Install Miniconda via script.
-      # Note: Installing Miniconda system-wide like this is possible, but
-      # using it within a toolbox or distrobox is often the recommended approach
-      # in atomic distributions for better isolation and reproducibility.
-      - |
-        #!/usr/bin/env bash
-        set -euo pipefail
-
-        MINICONDA_VERSION="latest" # Or a specific version like "py310_23.1.0-1"
-        MINICONDA_INSTALL_DIR="/opt/miniconda3" # System-wide installation path
-
-        # Download the Miniconda installer script
-        curl -LO "https://repo.anaconda.com/miniconda/Miniconda3-${MINICONDA_VERSION}-Linux-x86_64.sh"
-
-        # Run the installer script in batch mode (non-interactive)
-        # -b: batch mode
-        # -p: installation path
-        # -f: force installation if directory exists
-        bash Miniconda3-${MINICONDA_VERSION}-Linux-x86_64.sh -b -p ${MINICONDA_INSTALL_DIR} -f
-
-        # Clean up the installer script
-        rm Miniconda3-${MINICONDA_VERSION}-Linux-x86_64.sh
-
-        # Initialize Conda for all users (optional, can also be done per-user)
-        # This modifies the system's shell configuration. Be aware of potential side effects.
-        # ${MINICONDA_INSTALL_DIR}/bin/conda init bash
-        # ${MINICONDA_INSTALL_DIR}/bin/conda init zsh
-        # Add other shells as needed
-
-        # Update conda base environment (optional)
-        # ${MINICONDA_INSTALL_DIR}/bin/conda update -n base -c defaults --all -y
 
   # Module for enabling/disabling systemd services.
   - type: systemd
