@@ -183,11 +183,6 @@ modules:
       - noopenh264
       - libavcodec-free
 
-    replace:
-      - from-repo: https://kojipkgs.fedoraproject.org/packages/fedora-repos/42/1/noarch/fedora-repos-42-1.noarch.rpm
-        packages:
-          - mesa-filesystem
-
   #- type: akmods
     #install:
       #- nvidia-open
