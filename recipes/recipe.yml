@@ -185,7 +185,7 @@ modules:
       - noopenh264
 
     replace:
-      - from-repo: https://src.fedoraproject.org/rpms/fedora-repos/raw/f42/f/fedora-updates.repo
+      - from-repo: https://kojipkgs.fedoraproject.org/packages/fedora-repos/42/1/noarch/fedora-repos-42-1.noarch.rpm
         packages:
           - mesa-filesystem
 
