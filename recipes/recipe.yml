@@ -189,14 +189,29 @@ modules:
       #- evdi
 
   # Module for enabling/disabling systemd services.
+  - type: script
+    snippets:
+      - |
+        #!/usr/bin/env bash
+        set -euo pipefail
+
+        echo "=== Creating 'gdm' user and group ==="
+
+        # Create the 'gdm' group if it doesn't exist (-r creates a system group)
+        groupadd -r gdm || true
+
+        # Create the 'gdm' user if it doesn't exist (-r creates a system user, -g sets the primary group, -s sets the shell)
+        # Use '|| true' to prevent the build from failing if the user/group somehow already exist
+        useradd -r -g gdm -s /usr/sbin/nologin gdm || true
+
+        echo "=== 'gdm' user and group created ==="
+
+  # Your systemd module (which enables gdm.service) should come AFTER this script module
   - type: systemd
     system:
       # Enable GDM as the display manager.
-      # This might be needed depending on the base image's default.
-      # If GDM starts automatically after installing the package, you might not need this.
       enabled:
         - gdm.service
-        #- ibvirtd.service # Enable libvirtd for virtualization
 
   # Module for managing kernel arguments.
   - type: kargs
