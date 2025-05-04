@@ -9,6 +9,7 @@ image-version: 42
 
 modules:
   - type: dnf
+    allow-erasing: true
     repos:
       files:
         #- https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-42.noarch.rpm
