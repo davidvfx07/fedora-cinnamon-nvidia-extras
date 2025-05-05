@@ -19,7 +19,7 @@ modules:
         #- https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-42/atim-starship-fedora-42.repo
       copr:
         - atim/starship
-      #nonfree: negativo17
+      nonfree: negativo17
     install:
       allow-erasing: true
       packages:
