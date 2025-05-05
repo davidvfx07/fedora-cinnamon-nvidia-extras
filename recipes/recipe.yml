@@ -102,8 +102,14 @@ modules:
 
   - type: files
     files:
-      - source: system
-        destination: /
+    #  - source: system
+    #    destination: /
+    - source: apply-firstboot-kargs.sh
+      destination: /usr/local/bin/apply-firstboot-kargs.sh
+    - source: apply-firstboot-kargs.service
+      destination: /etc/systemd/system/apply-firstboot-kargs.service
+    - source: config.conf
+      destination: /etc/gdm/config.conf
 
   - type: script
     snippets:
@@ -114,7 +120,7 @@ modules:
       enabled:
         - gdm.service
         - libvirtd.service
-        
+
         - apply-firstboot-kargs.service
 
   - type: default-flatpaks
