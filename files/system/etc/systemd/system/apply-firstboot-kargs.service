@@ -1,0 +1,13 @@
+[Unit]
+Description=Apply kernel arguments on first boot
+After=network-online.target multi-user.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/apply-firstboot-kargs.sh
+RemainAfterExit=no
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
