@@ -25,7 +25,8 @@ modules:
       packages:
         - gdm
         - xorg-x11-server-Xorg
-        - xorg-x11-drv-nvidia
+        - cuda-devel
+        #- xorg-x11-drv-nvidia
         - cinnamon-session
 
         - gnome-shell-extension-gsconnect
