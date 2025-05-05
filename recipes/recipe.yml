@@ -86,6 +86,8 @@ modules:
 
     remove:
       packages:
+        - mesa-libGL
+        - mesa-dri-drivers
         - noopenh264
         - thunderbird
         - hexchat
@@ -107,17 +109,12 @@ modules:
   - type: script
     snippets:
       # Create the gdm user and group, which dnf install won't do
-      - 'set -euxo pipefail; if ! getent group gdm > /dev/null; then; groupadd -r gdm; fi; if ! getent passwd gdm > /dev/null; then; useradd -r -g gdm -d /var/lib/gdm -s /usr/sbin/nologin -c "GNOME Display Manager daemon user" gdm'
+      - "sudo rpm-ostree kargs --append nvidia-drm.modeset=1 rd.driver.blacklist=nouveau"
 
   - type: files
     files:
       - source: system
         destination: /
-
-  - type: kargs
-    kargs:
-      - nvidia-drm.modeset=1 # Enables NVIDIA DRM modesetting (often needed for Wayland)
-      - rd.driver.blacklist=nouveau # Blacklists the open-source Nouveau driver to prevent conflicts
 
   - type: default-flatpaks
     system:
