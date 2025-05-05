@@ -98,24 +98,21 @@ modules:
       packages:
         - cinnamon-desktop
 
-#  - type: systemd
-#    system:
-#      enabled:
-#        - gdm.service
-#        - libvirtd.service
+  - type: systemd
+    system:
+      enabled:
+        - gdm.service
+        - libvirtd.service
 
   - type: script
     snippets:
       # Create the gdm user and group, which dnf install won't do
-      - |
-        set -euxo pipefail # Exit immediately if a command fails
-        # Create the gdm group if it doesn't exist
-        if ! getent group gdm > /dev/null; then
-          groupadd -r gdm
-        fi
-        # Create the gdm user if it doesn't exist
-        if ! getent passwd gdm > /dev/null; then
-          useradd -r -g gdm -d /var/lib/gdm -s /usr/sbin/nologin -c "GNOME Display Manager daemon user" gdm
+      - 'set -euxo pipefail; if ! getent group gdm > /dev/null; then; groupadd -r gdm; fi; if ! getent passwd gdm > /dev/null; then; useradd -r -g gdm -d /var/lib/gdm -s /usr/sbin/nologin -c "GNOME Display Manager daemon user" gdm'
+
+  - type: files
+    files:
+      - source: system
+        destination: /
 
   - type: kargs
     kargs:
