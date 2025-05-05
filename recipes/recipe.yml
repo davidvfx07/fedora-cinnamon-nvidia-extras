@@ -23,6 +23,8 @@ modules:
       packages:
         - gdm
         - xorg-x11-server-Xorg
+        - xorg-x11-drv-nvidia
+        - cinnamon-session
 
         - gnome-shell-extension-gsconnect
 
@@ -110,6 +112,8 @@ modules:
       destination: /etc/systemd/system/apply-firstboot-kargs.service
     - source: config.conf
       destination: /etc/gdm/config.conf
+    #- source: cinnamon.desktop
+    #  destination: /usr/share/xsessions/cinnamon.desktop
 
   - type: script
     snippets:
