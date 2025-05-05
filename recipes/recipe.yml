@@ -100,21 +100,22 @@ modules:
       packages:
         - cinnamon-desktop
 
+  - type: files
+    files:
+      - source: system
+        destination: /
+
+  - type: script
+    snippets:
+      - "chmod +x /usr/local/bin/apply-firstboot-kargs.sh"
+
   - type: systemd
     system:
       enabled:
         - gdm.service
         - libvirtd.service
-
-  - type: script
-    snippets:
-      # Create the gdm user and group, which dnf install won't do
-      - "sudo rpm-ostree kargs --append nvidia-drm.modeset=1 rd.driver.blacklist=nouveau"
-
-  - type: files
-    files:
-      - source: system
-        destination: /
+        
+        - apply-firstboot-kargs.service
 
   - type: default-flatpaks
     system:
