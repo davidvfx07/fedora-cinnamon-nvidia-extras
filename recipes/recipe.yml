@@ -119,7 +119,7 @@ modules:
 
   - type: script
     snippets:
-      - "chmod +x /usr/local/bin/apply-firstboot-kargs.sh"
+      - "chmod +x /var/tmp/apply-firstboot-kargs.sh"
 
   - type: systemd
     system:
