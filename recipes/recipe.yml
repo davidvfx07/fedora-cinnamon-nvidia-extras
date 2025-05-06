@@ -8,6 +8,9 @@ base-image: ghcr.io/ublue-os/base-nvidia
 image-version: 42
 
 modules:
+  - type: bling
+    install:
+      - negativo17
   - type: dnf
     repos:
       files:
@@ -27,6 +30,7 @@ modules:
         - xorg-x11-server-Xorg
         - cuda-devel
         #- xorg-x11-drv-nvidia
+        - xorg-x11-nvidia
         - cinnamon-session
 
         - gnome-shell-extension-gsconnect
@@ -99,6 +103,7 @@ modules:
         - mpv
         - slick-greeter
         - slick-greeter-cinnamon
+        - lightdm
 
     group-install:
       with-optional: false # install optional packages from group

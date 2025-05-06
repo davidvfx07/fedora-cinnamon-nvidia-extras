@@ -19,13 +19,12 @@ echo "Applying first boot kernel arguments: $KARGS"
 # rpm-ostree kargs requires root privileges, the systemd service will run as root
 if rpm-ostree kargs --append "$KARGS"; then
     echo "Kernel arguments applied successfully."
-    # Create the state file to prevent running again
-    touch "$STATE_FILE"
-    echo "State file created: $STATE_FILE"
 else
     echo "Error applying kernel arguments."
-    # Do NOT create the state file if applying failed, so it can be retried
-    exit 1
 fi
+
+# Create the state file to prevent running again
+touch "$STATE_FILE"
+echo "State file created (will not run again while exists): $STATE_FILE"
 
 exit 0
