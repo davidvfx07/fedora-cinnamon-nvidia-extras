@@ -4,7 +4,7 @@ After=network-online.target multi-user.target
 
 [Service]
 Type=oneshot
-ExecStart=/var/tmp/apply-firstboot-kargs.sh
+ExecStart=/etc/apply-firstboot-kargs.sh
 RemainAfterExit=no
 StandardOutput=journal
 StandardError=journal

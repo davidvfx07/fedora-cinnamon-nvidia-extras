@@ -109,22 +109,22 @@ modules:
     #  - source: system
     #    destination: /
     - source: apply-firstboot-kargs.sh
-      destination: /var/tmp/apply-firstboot-kargs.sh
+      destination: /etc/apply-firstboot-kargs.sh
     - source: apply-firstboot-kargs.service
       destination: /etc/systemd/system/apply-firstboot-kargs.service
-    - source: config.conf
-      destination: /etc/gdm/config.conf
+    #- source: config.conf
+    #  destination: /etc/gdm/config.conf
     - source: cinnamon.desktop
       destination: /usr/share/xsessions/cinnamons.desktop
 
   - type: script
     snippets:
-      - "chmod +x /var/tmp/apply-firstboot-kargs.sh"
+      - "chmod +x /usr/local/bin/apply-firstboot-kargs.sh"
 
   - type: systemd
     system:
       enabled:
-        - gdm.service
+        #- gdm.service
         - libvirtd.service
 
         - apply-firstboot-kargs.service

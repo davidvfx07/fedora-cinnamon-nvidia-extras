@@ -27,7 +27,4 @@ touch "$STATE_FILE"
 echo "State file created (will not run again while exists): $STATE_FILE"
 fi
 
-systemctl disable apply-firstboot-kargs.service
-rm /etc/systemd/system/apply-firstboot-kargs.service
-
 exit 0
