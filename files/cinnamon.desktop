@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Cinnamon
+Comment=This session logs you into Cinnamon
+Exec=cinnamon-session
+TryExec=cinnamon-session
+Icon=linuxmint
+Type=Application
+DesktopNames=Cinnamon;GNOME;
+Hidden=false
+X-Desktop-Position=MM
+NoDisplay=false
