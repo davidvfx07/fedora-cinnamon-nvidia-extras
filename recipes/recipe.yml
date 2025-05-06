@@ -14,23 +14,17 @@ modules:
   - type: dnf
     repos:
       files:
-        #- https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-42.noarch.rpm
-        #- https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-42.noarch.rpm
         - https://src.fedoraproject.org/rpms/fedora-repos/raw/f42/f/fedora-cisco-openh264.repo
-        #- https://negativo17.org/repos/fedora-nvidia.repo
-        #- https://negativo17.org/repos/fedora-multimedia.repo
-        #- https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-42/atim-starship-fedora-42.repo
       copr:
         - atim/starship
-      nonfree: negativo17
+      #nonfree: negativo17
     install:
       allow-erasing: true
       packages:
         - gdm
         - xorg-x11-server-Xorg
-        - cuda-devel
-        #- xorg-x11-drv-nvidia
         - xorg-x11-nvidia
+        - cuda-devel
         - cinnamon-session
 
         - gnome-shell-extension-gsconnect
@@ -120,8 +114,8 @@ modules:
       destination: /etc/systemd/system/apply-firstboot-kargs.service
     - source: config.conf
       destination: /etc/gdm/config.conf
-    #- source: cinnamon.desktop
-    #  destination: /usr/share/xsessions/cinnamon.desktop
+    - source: cinnamon.desktop
+      destination: /usr/share/xsessions/cinnamon.desktop
 
   - type: script
     snippets:
@@ -156,3 +150,11 @@ modules:
         - Terminus
         - JetBrainsMono
         - NerdFontsSymbolsOnly
+
+
+
+#- https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-42.noarch.rpm
+#- https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-42.noarch.rpm
+#- https://negativo17.org/repos/fedora-nvidia.repo
+#- https://negativo17.org/repos/fedora-multimedia.repo
+#- https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-42/atim-starship-fedora-42.repo
