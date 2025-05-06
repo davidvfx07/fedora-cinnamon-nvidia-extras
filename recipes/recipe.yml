@@ -93,6 +93,7 @@ modules:
       packages:
         - mesa-libGL
         - mesa-dri-drivers
+        - gdm
         - noopenh264
         - thunderbird
         - hexchat
@@ -127,6 +128,7 @@ modules:
     system:
       enabled:
         #- gdm.service
+        - lightdm.service
         - libvirtd.service
 
         - apply-firstboot-kargs.service
