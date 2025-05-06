@@ -10,8 +10,7 @@ KARGS="nvidia-drm.modeset=1 rd.driver.blacklist=nouveau"
 # Check if the state file exists
 if [ -f "$STATE_FILE" ]; then
     echo "First boot kargs already applied. Skipping."
-    exit 0
-fi
+else
 
 echo "Applying first boot kernel arguments: $KARGS"
 
@@ -26,5 +25,9 @@ fi
 # Create the state file to prevent running again
 touch "$STATE_FILE"
 echo "State file created (will not run again while exists): $STATE_FILE"
+fi
+
+systemctl disable apply-firstboot-kargs.service
+rm /etc/systemd/system/apply-firstboot-kargs.service
 
 exit 0

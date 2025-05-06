@@ -21,7 +21,7 @@ modules:
     install:
       allow-erasing: true
       packages:
-        - gdm
+        #- gdm
         - xorg-x11-server-Xorg
         - xorg-x11-nvidia
         - cuda-devel
@@ -95,9 +95,9 @@ modules:
         - thunderbird
         - hexchat
         - mpv
-        - slick-greeter
-        - slick-greeter-cinnamon
-        - lightdm
+        #- slick-greeter
+        #- slick-greeter-cinnamon
+        #- lightdm
 
     group-install:
       with-optional: false # install optional packages from group
@@ -109,13 +109,13 @@ modules:
     #  - source: system
     #    destination: /
     - source: apply-firstboot-kargs.sh
-      destination: /usr/local/bin/apply-firstboot-kargs.sh
+      destination: /var/tmp/apply-firstboot-kargs.sh
     - source: apply-firstboot-kargs.service
       destination: /etc/systemd/system/apply-firstboot-kargs.service
     - source: config.conf
       destination: /etc/gdm/config.conf
     - source: cinnamon.desktop
-      destination: /usr/share/xsessions/cinnamon.desktop
+      destination: /usr/share/xsessions/cinnamons.desktop
 
   - type: script
     snippets:
