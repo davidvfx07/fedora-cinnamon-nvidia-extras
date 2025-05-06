@@ -21,13 +21,14 @@ modules:
     install:
       allow-erasing: true
       packages:
-        #- gdm
         - xorg-x11-server-Xorg
         - xorg-x11-nvidia
         - cuda-devel
         - cinnamon-session
-        - slick-greeter-cinnamon
+        #- slick-greeter-cinnamon
         - lightdm
+        - lightdm-gtk
+        - lightdm-gtk-greeter-settings
 
         - kde-connect
 
@@ -86,6 +87,7 @@ modules:
         - lshw
         - pciutils
         - ddrescue
+        - docker
         - podman
 
     remove:
@@ -111,7 +113,7 @@ modules:
     #  - source: system
     #    destination: /
     - source: apply-firstboot-kargs.sh
-      destination: /etc/apply-firstboot-kargs.sh
+      destination: /usr/local/bin/apply-firstboot-kargs.sh
     - source: apply-firstboot-kargs.service
       destination: /etc/systemd/system/apply-firstboot-kargs.service
     #- source: config.conf
