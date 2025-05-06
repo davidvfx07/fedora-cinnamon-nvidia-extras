@@ -26,6 +26,8 @@ modules:
         - xorg-x11-nvidia
         - cuda-devel
         - cinnamon-session
+        - slick-greeter-cinnamon
+        - lightdm
 
         - gnome-shell-extension-gsconnect
 
