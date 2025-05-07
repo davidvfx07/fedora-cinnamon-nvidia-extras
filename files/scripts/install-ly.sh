@@ -14,12 +14,15 @@ git clone https://codeberg.org/AnErrupTion/ly ly
 cd ly
 
 $ZIGPATH/zig build
-sudo $ZIGPATH/zig build installexe
+$ZIGPATH/zig build installexe
 
 cd ..
 
-sudo chcon system_u:object_r:xdm_exec_t:s0 /usr/bin/ly
-sudo systemctl enable ly.service
+setenforce 0
+chcon system_u:object_r:xdm_exec_t:s0 /usr/bin/ly
+setenforce 1
+
+systemctl enable ly.service
 
 rm -rf $ZIGPATH
 rm -f zig.tar.xz
