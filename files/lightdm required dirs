@@ -1,0 +1,15 @@
+/var/lib/lightdm
+/var/lib/lightdm-cache
+
+/var/cache/lightdm
+/var/cache/lightdm-cache
+
+
+
+sudo mkdir -p /var/cache/lightdm-data
+sudo mkdir -p /var/lib/lightdm-data
+
+sudo chown lightdm:lightdm /var/cache/lightdm-data
+sudo chown lightdm:lightdm /var/lib/lightdm-data
+sudo chmod 755 /var/cache/lightdm-data
+sudo chmod 755 /var/lib/lightdm-data

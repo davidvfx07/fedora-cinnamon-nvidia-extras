@@ -17,18 +17,25 @@ modules:
         - https://src.fedoraproject.org/rpms/fedora-repos/raw/f42/f/fedora-cisco-openh264.repo
       copr:
         - atim/starship
+        #- sentry/zig0.14 
       #nonfree: negativo17
     install:
       allow-erasing: true
       packages:
         - xorg-x11-server-Xorg
         - xorg-x11-nvidia
-        - cuda-devel
         - cinnamon-session
         #- slick-greeter-cinnamon
         #- lightdm
         #- lightdm-gtk
         #- lightdm-gtk-greeter-settings
+
+        - cuda-devel
+
+        # LY DEPS
+        - kernel-devel
+        - pam-devel 
+        - libxcb-devel
 
         - kde-connect
 
@@ -122,9 +129,11 @@ modules:
     #- source: cinnamon.desktop
     #  destination: /usr/share/xsessions/cinnamons.desktop
 
-  #- type: script
+  - type: script
   #  snippets:
   #    - "chmod +x /usr/local/bin/apply-firstboot-kargs.sh"
+    scripts:
+      - install-ly.sh
 
   - type: systemd
     system:
@@ -132,7 +141,7 @@ modules:
         #- gdm.service
         #- lightdm.service
         - libvirtd.service
-
+        - ly.service
         - apply-firstboot-kargs.service
 
   - type: default-flatpaks
