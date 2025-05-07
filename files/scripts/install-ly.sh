@@ -18,9 +18,7 @@ $ZIGPATH/zig build installexe
 
 cd ..
 
-setenforce 0
-chcon system_u:object_r:xdm_exec_t:s0 /usr/bin/ly
-setenforce 1
+#chcon system_u:object_r:xdm_exec_t:s0 /usr/bin/ly
 
 systemctl enable ly.service
 
