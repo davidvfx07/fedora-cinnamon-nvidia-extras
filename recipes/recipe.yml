@@ -2,7 +2,7 @@
 
 name: fedora-cinnamon-nvidia-extras
 
-description: Custom immutable Fedora Cinnamon image with NVIDIA/CUDA, development tools, VMs, and more.
+description: A custom Atomic Fedora image with Cinnamon DE, NVIDIA/CUDA drivers, development tools, and more.
 
 base-image: ghcr.io/ublue-os/base-nvidia
 image-version: 42
@@ -26,9 +26,9 @@ modules:
         - cuda-devel
         - cinnamon-session
         #- slick-greeter-cinnamon
-        - lightdm
-        - lightdm-gtk
-        - lightdm-gtk-greeter-settings
+        #- lightdm
+        #- lightdm-gtk
+        #- lightdm-gtk-greeter-settings
 
         - kde-connect
 
@@ -101,7 +101,8 @@ modules:
         - mpv
         #- slick-greeter
         #- slick-greeter-cinnamon
-        #- lightdm
+        - lightdm
+        - slick-greeter-cinnamon
 
     group-install:
       with-optional: false # install optional packages from group
@@ -118,8 +119,8 @@ modules:
       destination: /etc/systemd/system/apply-firstboot-kargs.service
     #- source: config.conf
     #  destination: /etc/gdm/config.conf
-    - source: cinnamon.desktop
-      destination: /usr/share/xsessions/cinnamons.desktop
+    #- source: cinnamon.desktop
+    #  destination: /usr/share/xsessions/cinnamons.desktop
 
   #- type: script
   #  snippets:
@@ -129,7 +130,7 @@ modules:
     system:
       enabled:
         #- gdm.service
-        - lightdm.service
+        #- lightdm.service
         - libvirtd.service
 
         - apply-firstboot-kargs.service
