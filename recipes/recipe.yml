@@ -26,10 +26,9 @@ modules:
         - xorg-x11-nvidia
         - cinnamon-session
         #- slick-greeter-cinnamon
-        - lightdm
-        - lightdm-gtk
-        - lightdm-gtk-greeter-settings
-        - light-locker
+        #- lightdm
+        #- lightdm-gtk
+        #- lightdm-gtk-greeter-settings
 
         - cuda-devel
 
@@ -99,7 +98,6 @@ modules:
         - podman
 
     remove:
-      auto-remove: true
       packages:
         - mesa-libGL
         - mesa-dri-drivers
@@ -108,9 +106,9 @@ modules:
         - thunderbird
         - hexchat
         - mpv
-
-        #- lightdm
-        - slick-greeter
+        #- slick-greeter
+        #- slick-greeter-cinnamon
+        - lightdm
         - slick-greeter-cinnamon
 
     group-install:
@@ -135,16 +133,15 @@ modules:
   #  snippets:
   #    - "chmod +x /usr/local/bin/apply-firstboot-kargs.sh"
     scripts:
-      #- install-ly.sh
-      - create-lightdm-dirs.sh
+      - install-ly.sh
 
   - type: systemd
     system:
       enabled:
         #- gdm.service
-        - lightdm.service
-        #- ly.service
+        #- lightdm.service
         - libvirtd.service
+        - ly.service
         - apply-firstboot-kargs.service
 
   - type: default-flatpaks
