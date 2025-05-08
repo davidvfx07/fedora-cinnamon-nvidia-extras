@@ -21,7 +21,6 @@ modules:
       #nonfree: negativo17
     install:
       allow-erasing: true
-      auto-remove: true
       packages:
         - xorg-x11-server-Xorg
         - xorg-x11-nvidia
@@ -100,6 +99,7 @@ modules:
         - podman
 
     remove:
+      auto-remove: true
       packages:
         - mesa-libGL
         - mesa-dri-drivers
@@ -108,7 +108,7 @@ modules:
         - thunderbird
         - hexchat
         - mpv
-        
+
         #- lightdm
         - slick-greeter
         - slick-greeter-cinnamon
