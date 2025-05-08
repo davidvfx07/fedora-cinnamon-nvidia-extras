@@ -21,14 +21,16 @@ modules:
       #nonfree: negativo17
     install:
       allow-erasing: true
+      auto-remove: true
       packages:
         - xorg-x11-server-Xorg
         - xorg-x11-nvidia
         - cinnamon-session
         #- slick-greeter-cinnamon
-        #- lightdm
-        #- lightdm-gtk
-        #- lightdm-gtk-greeter-settings
+        - lightdm
+        - lightdm-gtk
+        - lightdm-gtk-greeter-settings
+        - light-locker
 
         - cuda-devel
 
@@ -106,9 +108,9 @@ modules:
         - thunderbird
         - hexchat
         - mpv
-        #- slick-greeter
-        #- slick-greeter-cinnamon
-        - lightdm
+        
+        #- lightdm
+        - slick-greeter
         - slick-greeter-cinnamon
 
     group-install:
@@ -127,21 +129,21 @@ modules:
     #- source: config.conf
     #  destination: /etc/gdm/config.conf
     #- source: cinnamon.desktop
-    #  destination: /usr/share/xsessions/cinnamons.desktop
+    #  destination: /usr/share/xsessions/cinnamon.desktop
 
-  - type: script
-  #  snippets:
-  #    - "chmod +x /usr/local/bin/apply-firstboot-kargs.sh"
-    scripts:
-      - install-ly.sh
+  #- type: script
+#  #  snippets:
+#  #    - "chmod +x /usr/local/bin/apply-firstboot-kargs.sh"
+#    scripts:
+#      - install-ly.sh
 
   - type: systemd
     system:
       enabled:
         #- gdm.service
-        #- lightdm.service
+        - lightdm.service
+        #- ly.service
         - libvirtd.service
-        - ly.service
         - apply-firstboot-kargs.service
 
   - type: default-flatpaks
