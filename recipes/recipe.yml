@@ -131,11 +131,12 @@ modules:
     #- source: cinnamon.desktop
     #  destination: /usr/share/xsessions/cinnamon.desktop
 
-  #- type: script
-#  #  snippets:
-#  #    - "chmod +x /usr/local/bin/apply-firstboot-kargs.sh"
-#    scripts:
-#      - install-ly.sh
+  - type: script
+  #  snippets:
+  #    - "chmod +x /usr/local/bin/apply-firstboot-kargs.sh"
+    scripts:
+      #- install-ly.sh
+      - create-lightdm-dirs.sh
 
   - type: systemd
     system:
